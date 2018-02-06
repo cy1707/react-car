@@ -12,10 +12,8 @@ export default class HeadSearchComponent extends Component{
                         <i className="angle down icon"></i>
                     </li>
                     <li className = "headListc_c">
-                        <div className="ui disabled icon input">
-                            <i className="search icon"></i>
-                            <input type="text" placeholder="搜索您想要的车" />
-                        </div>
+                        <i className="search icon"></i>
+                        <input type = "text" placeholder="搜索您想要的车" className="inputsearch"/>
                     </li>
                     <li className = "headListc_r">
                         <i className="comment icon"></i>
