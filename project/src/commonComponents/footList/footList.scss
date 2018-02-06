@@ -1,1 +1,7 @@
-h3{color:yellow;}
+.footNav{height: 1.226667rem;width: 100%;border-top:2px solid #EBEBEB;
+    li{float:left;width: 25%;text-align: center;
+        i{font-size: .533333rem;color:#616570;margin-top:.16rem;margin-right:0;}
+        p{font-size:.266667rem;color:#616570;line-height: .506667rem;}
+    }
+    .active{color:#17B232;}
+}
