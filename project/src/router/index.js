@@ -7,14 +7,20 @@ import ProlistComponent from '../components/prolist/prolistComponent'
 import CarListComponent from '../components/carlist/carList'
 import SellCarComponent from '../components/sellCar/sellCar'
 import MineComponent from '../components/mine/mine'
+import sellComponent from '../components/sell/sellcomponent'
+import orderComponent from '../components/order/ordercomponent'
+
+
 
 const routes = (
     <Route path="/" component={RootComponent}>
         <Route path="home" component={HomeComponent}/>    
         <Route path="prolist" component={ProlistComponent}/>
         <Route path="carlist" component={CarListComponent}/>    
-        <Route path="sell" component={SellCarComponent}/>
-        <Route path="mine" component={MineComponent}/>    
+        <Route path="sellcar" component={SellCarComponent}/>
+        <Route path="mine" component={MineComponent}/>
+        <Route path="sell" component={sellComponent}/>
+        <Route path="order" component={orderComponent}/>    
     </Route>
 )
 
