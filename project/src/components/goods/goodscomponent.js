@@ -1,24 +1,23 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import * as actions from './goodsAction'
+
 
 import   './goods.scss'
 
-export default class goodsComponent extends Component{
+ class goodsComponent extends Component{
     state = {
         count: 0,
         goods:[]
     }
     componentWillMount(){
-        
+        var id = location.href.split("=")[1];
 
-        axios.get('http://10.3.136.50:88/one').then(res => {
-                        
-                        this.setState({goods : res.data.data.results})
-                        
-        
-        
-                    })
+        this.props.search(3).then(res => {
+            console.log(res);
+            
+        });
     }
 
     
@@ -29,7 +28,8 @@ export default class goodsComponent extends Component{
             <div id="g_box">
                     
                         {
-                            this.state.goods.map((item) => {
+
+                            this.props.ajaxResult.map((item) => {
                                 return (
                                     <div className="detail_top">
                                         <div className="img_g">
@@ -82,6 +82,48 @@ export default class goodsComponent extends Component{
                                             <div className="c_head">
                                                 基本信息
                                             </div>
+                                            <ul>
+                                                <li><span>表显里程</span><p>{item.mileage}</p></li>
+                                                <li><span>上牌地</span><p>{item.license_area}</p></li>
+                                                <li><span>变速箱</span><p>{item.biansuxiang}</p></li>
+                                                <li><span>过户次数</span><p>0</p></li>
+                                                <li><span>排放标准</span><p>{item.paifangbiaozhun}</p></li>
+                                                <li><span>排量</span><p>{item.paifang}</p></li>
+                                                <li><span>看车地址</span><p>白云</p></li>
+                                                <li><span>上牌时间</span><p>{item.license_time.slice(0,10)}</p></li>
+
+                                                
+                                            </ul>
+                                            <div className="btn-check">
+                                                <div>查看车辆详细信息</div>
+                                            </div>
+                                        </div>
+                                        <div className="green_blank"></div>
+                                        <div className="diverman-say">
+                                            <div className="d_head">
+                                                车主介绍
+                                            </div>
+                                            <div className="diverman">
+                                                <div className="pgs"><img src="project/src/img/d6.jpg" alt="" /></div>
+                                                <span>车主谢先生</span>
+                                                <p>职业-个体</p>
+                                            </div>
+                                            <div className="prob-list">
+                                                <li>城市道路行驶</li>
+                                                <li>上下班代步</li>
+                                                <li>修理厂保养</li>
+                                                <li>换新车</li>
+                                                <li>多功能方向盘</li>
+                                                <li>gps导航</li>
+                                            </div>
+                                        </div>
+                                        <div className="green_blank"></div>
+                                        <img src="project/src/img/d7.jpg" alt="" />
+                                        <img src="project/src/img/d8.jpg" alt="" />
+                                        <div className="like">
+                                            <div className="l_head">
+                                                猜你喜欢
+                                            </div>
                                         </div>
                                     </div>
                                 )
@@ -97,3 +139,12 @@ export default class goodsComponent extends Component{
 
 
 }
+
+let mapStateToProps = (state) => {
+    return {
+        ajaxStatus: state.goods.status,
+        ajaxResult: state.goods.result || []
+    }
+}
+
+export default connect(mapStateToProps, actions)(goodsComponent);

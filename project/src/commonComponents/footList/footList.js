@@ -20,13 +20,13 @@ export default class FootListComponent extends Component{
                             <p>买车</p>
                         </li>
                     </Link>
-                    <Link to="sell">
+                    <Link to="/sell">
                         <li>
                             <i className="announcement icon"></i>
                             <p>卖车</p>
                         </li>
                     </Link>
-                    <Link to="mine">
+                    <Link to="/mine">
                         <li>
                             <i className="user icon"></i>
                             <p>我的</p>
