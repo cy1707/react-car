@@ -9,6 +9,7 @@ import SellCarComponent from '../components/sellCar/sellCar'
 import MineComponent from '../components/mine/mine'
 import sellComponent from '../components/sell/sellcomponent'
 import orderComponent from '../components/order/ordercomponent'
+import goodsComponent from '../components/goods/goodscomponent'
 
 
 
@@ -20,7 +21,8 @@ const routes = (
         <Route path="sellcar" component={SellCarComponent}/>
         <Route path="mine" component={MineComponent}/>
         <Route path="sell" component={sellComponent}/>
-        <Route path="order" component={orderComponent}/>    
+        <Route path="order" component={orderComponent}/>
+        <Route path="goods" component={goodsComponent}/>    
     </Route>
 )
 
