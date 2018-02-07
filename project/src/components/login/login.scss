@@ -1,0 +1,16 @@
+.loginPage{height:100%;display: flex;flex-direction: column;
+    .login_head{height: 1.226667rem;padding:.32rem 0 0 .44rem;
+        i{font-size: .533333rem;color:#5A616B;}
+    }
+    .login_main{flex:1;overflow-x:hidden;padding-left:.8rem;padding-top:.453333rem;
+        a{font-size: .746667rem;color:#3F4247;font-weight: bold;}
+        p{font-size: .32rem;color:#BCBDC2;line-height: .746667rem;}
+        div{position: relative;
+            i{font-size: .533333rem;}
+            input{letter-spacing: .053333rem;width: 8.066667rem;height: 1.133333rem;border:0 none;background: #F6F7F9;font-size:.4rem;line-height:1.133333rem ;padding-left:.333333rem;margin-bottom:.106667rem;}
+            .loginBtn{color:#fff;letter-spacing: .133333rem;width: 8.066667rem;height: 1.133333rem;background: #BEC5CF;font-size: .426667rem;border:0 none;margin-top:.4rem;}
+            span{font-size: .373333rem;color:#D0CFD5;line-height: .933333rem;text-align: center;position:absolute;top:1.333333rem;right:1.333333rem;display: inline-block;width: 1.466667rem;height:.933333rem;background: #fff; }
+        }
+    }
+
+}

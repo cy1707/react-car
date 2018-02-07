@@ -4,7 +4,9 @@
     }
     .main_mine{flex:1;overflow-x:hidden;background: #F7F6FC;padding-top:.106667rem;
         .userImformation{height: 2.04rem;background: #fff;padding-top:.506667rem;padding-left:.506667rem;
-            .userInformationImg{display: inline-block;vertical-align: top;width: .906667rem;height: .906667rem;background: yellow;border-radius: 50%;}
+            .userInformationImg{display: inline-block;vertical-align: top;width: .906667rem;height: .906667rem;border-radius: 50%;
+                img{width: .906667rem;}
+            }
             .userInformationMsg{display: inline-block;letter-spacing: .04rem;color:#3F3E44;font-size: .346667rem;line-height: .906667rem;padding-left:.226667rem;}
         }
         .mine_list{margin-top:.16rem;height: 8.533333rem;background: #fff;

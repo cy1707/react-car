@@ -1,8 +1,29 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 
 import FootListComponent from '../../commonComponents/footList/footList'
 import './mine.scss'
 export default class MineComponent extends Component{
+    // 如果登录，显示用户名
+    componentDidMount(){
+       
+        if(window.localStorage.hasOwnProperty('username')){
+            document.querySelector('.userInformationMsg').innerHTML = window.localStorage.username;
+        }else{
+            document.querySelector('.userInformationMsg').innerHTML = '登录查看更多信息';
+        }
+    }
+    loginJurge(){
+ 
+        if(window.localStorage.hasOwnProperty('username') == false){
+            location.href = "http://localhost:888/#/login"           
+        }
+
+    }
+    exit(){
+        window.localStorage.removeItem('username');
+        document.querySelector('.userInformationMsg').innerHTML = '登录查看更多信息';
+    }
     render(){
         return (
             <div className="minePage"> 
@@ -12,17 +33,19 @@ export default class MineComponent extends Component{
                 </div>
                 <div className="main_mine">
                     <div className="userImformation">
-                        <div className="userInformationImg"><img src=""/></div>
-                        <div className="userInformationMsg">登录查看更多信息</div>
+                        <div className="userInformationImg"><img src="./project/src/img/mine_user.jpg"/></div>
+                        <div className="userInformationMsg" onTouchStart={this.loginJurge.bind(this)}>登录查看更多信息</div>
                     </div>
                     <div className="mine_list">
                         <div className="mine_list_t">
                             <div>订单中心</div>
                             <ul>
-                                <li>
-                                    <img src="./project/src/img/mine_list1.jpg"/>
-                                    <p>买车订单</p>
-                                </li>
+                                <Link to="/buyorder">
+                                    <li>
+                                        <img src="./project/src/img/mine_list1.jpg"/>
+                                        <p>买车订单</p>
+                                    </li>
+                                </Link>
                                 <li>
                                     <img src="./project/src/img/mine_list2.jpg"/>
                                     <p>卖车订单</p>
@@ -80,8 +103,8 @@ export default class MineComponent extends Component{
                             <span className="mine_setting_l">意见反馈</span>
                             <span className="mine_setting_r"><i className="angle right icon"></i></span>
                         </li>
-                        <li>
-                            <span className="mine_setting_l">设置</span>
+                        <li onTouchStart={this.exit.bind(this)}>
+                            <span className="mine_setting_l">退出</span>
                             <span className="mine_setting_r"><i className="angle right icon"></i></span>
                         </li>
                     </ul>
@@ -109,6 +132,7 @@ export default class MineComponent extends Component{
                 <div className="foot_mine">
                     <FootListComponent/> 
                 </div>
+                
             </div>
         )
     }

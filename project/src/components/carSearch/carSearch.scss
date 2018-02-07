@@ -1,0 +1,18 @@
+.carSearchPage{height:100%;display: flex;flex-direction: column;
+    .carsearch_head{height: 1.226667rem;width: 100%;line-height:1.226667rem;padding-left:.266667rem;position: relative;border-bottom:.026667rem solid #F8F8F8;
+        input{padding-left:1.066667rem;width:85%;height: .8rem;background: #F1F2F7;border:0 none;border-radius:.4rem; }
+        i{position:absolute;top:.026667rem;left:.56rem;font-size: .4rem;color:#C8CDD3;}
+        a{color:#2EA44E;font-size: .373333rem;letter-spacing: .053333rem;float: right;margin-right:.293333rem;}
+    }
+    .carsearch_main{flex:1;overflow-x:hidden;background: #fff;
+        .carsearch_main_hot{padding-top:.613333rem;padding-left:.533333rem;
+            p{font-size:.346667rem;color:#414141;letter-spacing: .04rem;}
+            div{display: inline-block;border:.026667rem solid #EAEAEA;margin:0 .2rem .2rem 0;padding:.16rem .346667rem;font-size:.32rem ;color:#414143;}
+        }
+        .carsearch_main_results{padding-left:.533333rem;
+            li{height: 1.333333rem;
+                a{display: inline-block;font-size: .373333rem;line-height: 1.333333rem;color:#606062;}
+            }
+        }
+    }
+}

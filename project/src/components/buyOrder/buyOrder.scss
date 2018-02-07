@@ -1,0 +1,28 @@
+.buyorderPage{height:100%;display: flex;flex-direction: column;
+    .buyorder_head{position: relative;height: 1.226667rem;border-bottom:.026667rem solid #ccc;text-align: center;background: #fff;position: relative;font-size: .426667rem;line-height: 1.226667rem;color:#0C0C0C;
+        i{font-size: .533333rem;color:#5A616B;position:absolute;top:0;left:0;}
+    }
+    .buyorder_main{flex:1;padding:.346667rem;
+        .buyorder_c{
+            li{border:.026667rem solid rgb(126, 122, 122);padding: .266667rem;width: 100%;padding-top:.4rem;padding-bottom:.44rem;
+                p{letter-spacing: .04rem;padding-bottom:.133333rem;font-size: .4rem;font-weight: bold;color:#5A616B;line-height: .48rem;border-bottom:.026667rem solid rgb(145, 138, 138);}
+                .buyorder_cl{margin-right:.266667rem;display: inline-block;
+                    img{width: 3.093333rem;height: 2.066667rem}
+                }
+                .buyorder_cr{height: 2.066667rem;display: inline-block;vertical-align: top;
+                    a{display: inline-block;font-size: .373333rem;font-weight: bold;line-height: .426667rem;color:#282828;}
+                    .buyorder_crc{font-size: .32rem;color:#9A9A9A;
+                        span{display: inline-block;line-height: .64rem;}
+                    }
+                    .buyorder_crb{font-size: .426667rem;color:#D97216;font-weight: bold;padding-top:.266667rem;}
+                }
+                .buyorder_cb{border-top:.013333rem solid rgb(145, 138, 138);height: .666667rem;margin-top:.4rem;padding-top:.186667rem;
+                    button{background: #fff;display: inline-block;padding:.133333rem;font-size: .32rem;color:#5A616B;float:right;}
+                    .giveupBtn{border:.026667rem solid rgb(235, 120, 120);}
+                    .payBtn{border:.026667rem solid rgb(115, 226, 115);margin-right:.2rem;}
+                }
+            }
+            
+        }
+    }
+}

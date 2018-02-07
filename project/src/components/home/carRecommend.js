@@ -3,70 +3,86 @@ import {connect} from 'react-redux'
 import axios from 'axios'
 
 import './carRecommend.scss'
+import * as actions from './carRecommendAction'
 
-export default class CarRecommendComponent extends Component{
-   
-    componentDidMount(){
-        console.log(this.props.api);
-        var carRandom = [];
-        axios.get(this.props.api).then(function(res){
-            // 随机显示6个
-            // var carRandom = [];
-
-            var carsList = res.data.data.results;
-            var len = res.data.data.results.length;
-            var idx = [];
-            for(var i=0;i<6;i++){
-                idx.push(parseInt(Math.random()*len));
-                carRandom.push(carsList[idx[i]]);
-            } 
-        });
-        
+class CarRecommendComponent extends Component{
+//    state = {
+//        car : []
+//     }
+    componentWillMount(){
+        // console.log(this.props.api);
+        // axios.get(this.props.api).then((res)=>{
+        //     var carsList = res.data.data.results;
+        //     carsList = carsList.slice(0,6)
+        //     this.setState({car:carsList})
+        //     console.log(this.state.car)            
+        // });
+        // this.props.goodsCarList();
+        const len = this.props.api.split('/').length;
+        console.log(this.props.api.split('/')[len-1])
+        const data = this.props.api.split('/')[len-1];
+        // var api = this.props.api.
+        this.props.addCart(data);
     }
     getCars(){
-        console.log(this.props.api);
-        var carRandom = [];
-        axios.get(this.props.api).then(function(res){
-            // 随机显示6个
-            var carRandom = [];
-            var carsList = res.data.data.results;
-            var len = res.data.data.results.length;
-            var idx = [];
-            for(var i=0;i<6;i++){
-                idx.push(parseInt(Math.random()*len));
-                carRandom.push(carsList[idx[i]]);
-            }
-          
-            console.log(carRandom);
-           
-        });
+        
+        console.log(666);
+        // axios.get(this.props.api).then((res)=>{
+        //     var carsList = res.data.data.results;
+        //     carsList = carsList.slice(0,6)
+        //     this.setState({car:carsList})
+        //     console.log(this.state.car)            
+        // });
+
     }
     render(){
         
         return (
             <div>
-            
-                <ul className="carRecommendList">
-                    <li>
-                        <div className="carRecommendList_l">
-                            <img src=""/>    
-                        </div>
-                        <div className="carRecommendList_r">
-                            <a className="aa">日产骐达 2008款 1.6L 自动智能型</a>
-                            <div className="carRecommendList_rc">
-                                <span>2009年/</span>
-                                <span>16.5万公里</span>
-                            </div>
-                            <div className="carRecommendList_rb">
-                                <span>5万</span>
-                                <a>新车价<s>20.15万</s></a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            
+                 {
+                    this.props.ajaxResult.slice(0,6).map( item => {
+                        return (
+                            <ul className="carRecommendList" key={item.id}>
+                                <li>
+                                    <div className="carRecommendList_l">
+                                        <img src={
+                                            item.imgurl.split(',')[0]
+                                        }/>
+                                        
+                                    </div>
+                                    <div className="carRecommendList_r">
+                                        <a className="aa">{item.name}</a>
+                                        <div className="carRecommendList_rc">
+                                            <span>
+                                                {
+                                                    item.license_time.slice(0,4)
+                                                }
+                                                年/
+                                            </span>
+                                            <span>{item.mileage}万公里</span>
+                                        </div>
+                                        <div className="carRecommendList_rb">
+                                            <span>{item.oprice}万</span>
+                                            <a>新车价<s>{item.nprice}万</s></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        )
+                     })
+                 }
+               
             </div>
         )
     }
 }
 
+let mapStateToProps = (state) => {
+    console.log('component的',state.carRecommend.result)
+    return {
+        ajaxStatus: state.carRecommend.status,
+        ajaxResult: state.carRecommend.result || []
+    }
+}
+
+export default connect(mapStateToProps, actions)(CarRecommendComponent);
