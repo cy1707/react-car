@@ -11,7 +11,7 @@ export default function carRecommendReducer(state = {}, action){
         case ajaxConstants.AJAX_REQUESTED:
             newState.status = 1;
             newState.result = action.result.results;
-            console.log('reducer的',action.result.results)
+            // console.log('reducer的',action.result.results)ss
             
             break;
         case (ajaxConstants.AJAX_REQUESTERROR || carRecommendConstants.ADDCART_RQUESTERROR):

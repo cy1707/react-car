@@ -1,15 +1,25 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
+import {Link,hashHistory} from 'react-router'
 import {connect} from 'react-redux'
 
 import './carSearch.scss'
 import * as actions from './carSearchAction'
 
 class CarSearchComponent extends Component{
+    // 模糊搜索
     searchCars(){
+
         const searchInput = document.querySelector('.searchInput').value;
-        // console.log(searchInput);
+        
         this.props.searchCar(searchInput);
+        
+    }
+    // 点击跳转详情页
+    carSearchdetail(id){
+        hashHistory.push({
+            pathname:'goods',
+            query:{id:id}
+        })
     }
     render(){
         return (
@@ -24,7 +34,7 @@ class CarSearchComponent extends Component{
                         {
                             this.props.ajaxResult.map( item => {
                                 return (
-                                    <li id={item.id} key={item.id}><a>{item.name}</a></li>
+                                    <li id={item.id} key={item.id} onTouchStart={this.carSearchdetail.bind(this,item.id)}><a>{item.name}</a></li>
                                 )
                             })
                         }
@@ -48,7 +58,7 @@ class CarSearchComponent extends Component{
     }
 }
 let mapStateToProps = (state) => {
-    console.log('component的',state.carSearch.result)
+    // console.log('component的',state.carSearch.result)
     return {
         ajaxStatus: state.carSearch.status,
         ajaxResult: state.carSearch.result || []

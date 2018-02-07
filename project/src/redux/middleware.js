@@ -17,7 +17,7 @@ export default function middleware(api){
             if(url){
                 return new Promise((resolve, reject) => {
                     http[method](url, data).then(res => {
-                        console.log('中间件',res);
+                        // console.log('中间件',res);
                         api.dispatch({
                             type: requested,
                             result: res.body.data

@@ -9,7 +9,7 @@ import './home.scss'
 
 export default class HomeComponent extends Component{
     state = {
-        api:'http://10.3.136.50:88/haoche',
+        api:'http://10.3.136.50:88/baomai',
     }
     
     // 好车推荐部分组件传参、切换
@@ -19,7 +19,7 @@ export default class HomeComponent extends Component{
             var len = e.target.parentElement.parentElement.parentElement.children.length;
             for(let i=0;i<len;i++){
                 lis[i].children[0].className = '';
-                console.log(e.target.innerText )
+                // console.log(e.target.innerText )
                 if(e.target.innerText == '好车推荐'){
                     this.setState({api:'http://10.3.136.50:88/haoche'});
                     e.target.parentNode.className="active";
@@ -31,13 +31,15 @@ export default class HomeComponent extends Component{
                     e.target.parentNode.className="active";
                 }
             }
-            console.log('home的',this.refs.c1.selector.props)
+            
+            console.log('home的',this.refs.c1)
             // console.log(this.refs.c1);
             // this.refs.c1.getCars();
         }
         
     }
     render(){
+        
         return (
             <div className="homePage"> 
                 <header className="head_Search">
@@ -212,6 +214,12 @@ export default class HomeComponent extends Component{
                 <footer className="foot_List">
                     <FootListComponent/>
                 </footer>
+                <div className="toTop">
+                    <i>返</i>
+                    <i>回</i>
+                    <i>顶</i>
+                    <i>部</i>    
+                </div>
             </div>
         )
     }

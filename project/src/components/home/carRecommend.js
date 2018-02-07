@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import {hashHistory} from 'react-router'
 
 import './carRecommend.scss'
 import * as actions from './carRecommendAction'
@@ -10,13 +11,7 @@ class CarRecommendComponent extends Component{
 //        car : []
 //     }
     componentWillMount(){
-        // console.log(this.props.api);
-        // axios.get(this.props.api).then((res)=>{
-        //     var carsList = res.data.data.results;
-        //     carsList = carsList.slice(0,6)
-        //     this.setState({car:carsList})
-        //     console.log(this.state.car)            
-        // });
+
         // this.props.goodsCarList();
         const len = this.props.api.split('/').length;
         console.log(this.props.api.split('/')[len-1])
@@ -27,13 +22,14 @@ class CarRecommendComponent extends Component{
     getCars(){
         
         console.log(666);
-        // axios.get(this.props.api).then((res)=>{
-        //     var carsList = res.data.data.results;
-        //     carsList = carsList.slice(0,6)
-        //     this.setState({car:carsList})
-        //     console.log(this.state.car)            
-        // });
 
+    }
+    // 点击跳转详情页
+    cardetail(id){
+        hashHistory.push({
+            pathname:'goods',
+            query:{id:id}
+        })
     }
     render(){
         
@@ -42,7 +38,7 @@ class CarRecommendComponent extends Component{
                  {
                     this.props.ajaxResult.slice(0,6).map( item => {
                         return (
-                            <ul className="carRecommendList" key={item.id}>
+                            <ul className="carRecommendList" key={item.id} onTouchStart={this.cardetail.bind(this,item.id)}>
                                 <li>
                                     <div className="carRecommendList_l">
                                         <img src={
@@ -78,7 +74,7 @@ class CarRecommendComponent extends Component{
 }
 
 let mapStateToProps = (state) => {
-    console.log('component的',state.carRecommend.result)
+    console.log('Tabcomponent的',state.carRecommend.result)
     return {
         ajaxStatus: state.carRecommend.status,
         ajaxResult: state.carRecommend.result || []

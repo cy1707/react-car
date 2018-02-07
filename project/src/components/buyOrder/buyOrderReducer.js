@@ -1,24 +1,24 @@
 import * as ajaxConstants from '../../constants/ajaxConstants'
-import * as carSearchConstants from './carSearchConstants'
+import * as buyOrderConstants from './buyOrderConstants'
 
-export default function carSearchReducer(state = {}, action){
+export default function carRecommendReducer(state = {}, action){
     let newState = JSON.parse(JSON.stringify(state));
     
     switch(action.type){
-        case (ajaxConstants.AJAX_REQUESTING || carSearchConstants.ADDCART_RQUESTING):
+        case (ajaxConstants.AJAX_REQUESTING || buyOrderConstants.ADDCART_RQUESTING):
             newState.status = 0;
             break;
         case ajaxConstants.AJAX_REQUESTED:
             newState.status = 1;
             newState.result = action.result.results;
-            // console.log('reducer的',action.result.results)
+            // console.log('buyOrder的',action.result.results)
             
             break;
-        case (ajaxConstants.AJAX_REQUESTERROR || carSearchConstants.ADDCART_RQUESTERROR):
+        case (ajaxConstants.AJAX_REQUESTERROR || buyOrderConstants.ADDCART_RQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;
             break;
-        case carSearchConstants.ADDCART_RQUESTED:
+        case buyOrderConstants.ADDCART_RQUESTED:
             newState.status = 1;
             break;
     }
