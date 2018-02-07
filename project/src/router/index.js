@@ -11,6 +11,7 @@ import CarSearchComponent from '../components/carSearch/carSearch'
 import sellComponent from '../components/sell/sellcomponent'
 import orderComponent from '../components/order/ordercomponent'
 import buyorderComponent from '../components/buyOrder/buyOrder'
+import goodsComponent from '../components/goods/goodscomponent'
 
 
 
@@ -25,6 +26,7 @@ const routes = (
         <Route path="sell" component={sellComponent}/>
         <Route path="order" component={orderComponent}/> 
         <Route path="buyorder" component={buyorderComponent}/>   
+        <Route path="goods" component={goodsComponent}/>    
     </Route>
 )
 
