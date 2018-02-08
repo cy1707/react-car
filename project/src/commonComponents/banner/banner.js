@@ -31,29 +31,29 @@ export default class BannerComponent extends Component{
             timer = setInterval(switchImg,timing);
         };
 
-        // $(prev).off("touchstart").on("touchstart",function(){
-        //     var on = $(carousel).children(".on");
-        //     on.stop(true,true).hide(animateTime).removeClass("on");
-        //     if(on.prev().is("li")){
-        //         switchIndex($(carousel).children("li").index(on.prev()));
-        //         on.prev().stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
-        //     }else{
-        //         switchIndex($(carousel).children("li").index(list[list.length-1]));
-        //         $(list[list.length-1]).stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
-        //     }
+        $(prev).off("touchstart").on("touchstart",function(){
+            var on = $(carousel).children(".on");
+            on.stop(true,true).hide(animateTime).removeClass("on");
+            if(on.prev().is("li")){
+                switchIndex($(carousel).children("li").index(on.prev()));
+                on.prev().stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
+            }else{
+                switchIndex($(carousel).children("li").index(list[list.length-1]));
+                $(list[list.length-1]).stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
+            }
 
-        // });
-        // $(next).off("touchstart").on("touchstart",function(){
-        //     var on = $(carousel).children(".on");
-        //     on.stop(true,true).hide(animateTime).removeClass("on");
-        //     if(on.next().is("li")){
-        //         switchIndex($(carousel).children("li").index(on.next()));
-        //         on.next().stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
-        //     }else{
-        //         switchIndex($(carousel).children("li").index(list[0]));
-        //         $(list[0]).stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
-        //     }
-        // });
+        });
+        $(next).off("touchstart").on("touchstart",function(){
+            var on = $(carousel).children(".on");
+            on.stop(true,true).hide(animateTime).removeClass("on");
+            if(on.next().is("li")){
+                switchIndex($(carousel).children("li").index(on.next()));
+                on.next().stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
+            }else{
+                switchIndex($(carousel).children("li").index(list[0]));
+                $(list[0]).stop(true,true).addClass("on").delay(animateTime/2).show(animateTime);
+            }
+        });
 
         // 点击跳转对应的图片
         $(indexList).off("touchstart").on("touchstart",function(){
@@ -98,16 +98,16 @@ export default class BannerComponent extends Component{
                 auto : true,//是否自动播放
             });
             //左右切换 
-			// $(".carousel-prev").hover(function(){
-			// 	$(this).find("img").attr("src","./project/src/img/left_btn2.png");
-			// },function(){
-			// 	$(this).find("img").attr("src","./project/src/img/left_btn1.png");
-			// });
-			// $(".carousel-next").hover(function(){
-			// 	$(this).find("img").attr("src","./project/src/img/right_btn2.png");
-			// },function(){
-			// 	$(this).find("img").attr("src","./project/src/img/right_btn1.png");
-			// });
+			$(".carousel-prev").hover(function(){
+				$(this).find("img").attr("src","./project/src/img/left_btn2.png");
+			},function(){
+				$(this).find("img").attr("src","./project/src/img/left_btn1.png");
+			});
+			$(".carousel-next").hover(function(){
+				$(this).find("img").attr("src","./project/src/img/right_btn2.png");
+			},function(){
+				$(this).find("img").attr("src","./project/src/img/right_btn1.png");
+			});
 		
 	
     }
@@ -126,7 +126,12 @@ export default class BannerComponent extends Component{
                 <ul className="img-index">
                     
                 </ul>
-                
+                <div className="carousel-prev">
+                    <img src="./project/src/img/left_btn2.png" id="prev"/>
+                </div>
+                <div className="carousel-next">
+                    <img src="./project/src/img/right_btn2.png" id="next"/>  
+                </div>
             </div>
         )
     }

@@ -4,27 +4,28 @@ import axios from 'axios'
 import {hashHistory} from 'react-router'
 
 import './carRecommend.scss'
-import * as actions from './carRecommendAction'
+// import * as actions from './carRecommendAction'
 
-class CarRecommendComponent extends Component{
-//    state = {
-//        car : []
-//     }
+ export default class CarRecommendComponent extends Component{
+    state = {
+       car : []
+    }
     componentWillMount(){
-
-        // this.props.goodsCarList();
         console.log('api',this.props.api)
-        const len = this.props.api.split('/').length;
-        // console.log('len',this.props.api.split('/')[len-1])
-        const data = this.props.api.split('/')[len-1];
-        // var api = this.props.api.
-        this.props.addCart(data);
-        console.log(666999)
+        axios.get(this.props.api).then(res=>{
+            console.log(res.data.data.results.slice(0,6));
+            this.setState({car:res.data.data.results.slice(0,6)})
+        })
     }
     A(){
-        const len = this.props.api.split('/').length;
-        const data = this.props.api.split('/')[len-1];
-        this.props.addCart(data);
+        // const len = this.props.api.split('/').length;
+        // const data = this.props.api.split('/')[len-1];
+        // this.props.addCart(data);
+        console.log("Tab666的",this.props.api)
+        axios.get(this.props.api).then(res=>{
+            console.log(res.data.data.results.slice(0,6));
+            this.setState({car:res.data.data.results.slice(0,6)})
+        })
         console.log("Tab的666");
 
     }
@@ -39,7 +40,7 @@ class CarRecommendComponent extends Component{
         return (
             <div>
                  {
-                    this.props.ajaxResult.slice(0,6).map( item => {
+                    this.state.car.map( item => {
                         return (
                             <ul className="carRecommendList" key={item.id} onTouchStart={this.cardetail.bind(this,item.id)}>
                                 <li>
@@ -76,12 +77,12 @@ class CarRecommendComponent extends Component{
     }
 }
 
-let mapStateToProps = (state) => {
-    console.log('Tabcomponent的',state.carRecommend)
-    return {
-        ajaxStatus: state.carRecommend.status,
-        ajaxResult: state.carRecommend.result || []
-    }
-}
+// let mapStateToProps = (state) => {
+//     console.log('Tabcomponent的',state.carRecommend.result)
+//     return {
+//         ajaxStatus: state.carRecommend.status,
+//         ajaxResult: state.carRecommend.result || []
+//     }
+// }
 
-export default connect(mapStateToProps, actions)(CarRecommendComponent);
+// export default connect(mapStateToProps, actions)(CarRecommendComponent);

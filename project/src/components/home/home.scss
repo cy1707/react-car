@@ -5,13 +5,13 @@
             img{height: 3.546667rem;width: 100%}
         }
         .priceSelect{height: 7.813333rem;background:#fff;padding-top:.133333rem;
-            .priceSelect_t{
+            .priceSelect_t{    overflow: hidden;
                 li{float: left;line-height: 1.146667rem;width: 25%;
                     .secondspan{padding-left:.846667rem;}
                     span{display: inline-block;padding-left:.666667rem;line-height: 1.146667rem;font-size:.373333rem;color:#525252;font-weight: bold;}
                 }
             }
-            .priceSelect_c1{
+            .priceSelect_c1{    overflow: hidden;
                 li{float: left;line-height: 1.146667rem;width: 25%;
                     span{display: inline-block;padding-left:.8rem;line-height: 1.146667rem;font-size:.373333rem;color:#525252;font-weight: bold;}
                 }
@@ -114,11 +114,7 @@
 
     
     }
-    .back-top{
-        position:fixed;
-        top:80%;
-        right:5%;
-    }
+    
 
 }
 

@@ -1,19 +1,17 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
+import {Link,hashHistory} from 'react-router'
 import axios from 'axios'
 
 import FootListComponent from '../../commonComponents/footList/footList'
 import HeadSearchComponent from '../../commonComponents/headSearch/headSearch'
 import CarRecommendComponent from './carRecommend'
 import BannerComponent from '../../commonComponents/banner/banner'
-import BackTopComponent from '../../commonComponents/toTop/toTop'
 import './home.scss'
 
 export default class HomeComponent extends Component{
     state = {
         api:'http://10.3.136.50:88/haoche',
     }
-   
     
     // 好车推荐部分组件传参、切换
     carRecommendCreate(e){
@@ -33,18 +31,64 @@ export default class HomeComponent extends Component{
                     this.setState({api:'http://10.3.136.50:88/jishou'});
                     e.target.parentNode.className="active";
                 }
+                this.refs.c1.A();
             }
-            console.log('this的',this)
-            console.log("Tab的", this.refs.c1)
-            console.log("头部的", this.refs.c2)
-
-            // this.refs.c2.headle();
-            // this.refs.c1.getCars();
-            
-            // console.log(this.refs.c1);
-            // this.refs.c1.getCars();
         }
         
+    }
+    toDetail(e){
+        // console.log(e.target);
+        if(e.target.tagName.toLowerCase() == 'span'){
+            // console.log(e.target.innerHTML)
+            if(e.target.innerHTML == '5万以下'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{low:0,high:5}
+                })
+            }else if(e.target.innerHTML == '5-10万'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{low:5,high:10}
+                })
+            }else if(e.target.innerHTML == '10-15万'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{low:10,high:15}
+                })
+            }else if(e.target.innerHTML == '15万以上'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{low:15,high:1000}
+                })
+            }
+        }
+    }
+    toCarDetail(e){
+        // console.log(e.target);
+        if(e.target.tagName.toLowerCase() == 'span'){
+            // console.log(e.target.innerHTML)
+            if(e.target.innerHTML == '自动'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{n1:1}
+                })
+            }else if(e.target.innerHTML == '保卖车'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{n2:2}
+                })
+            }else if(e.target.innerHTML == '准新车'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{n3:3}
+                })
+            }else if(e.target.innerHTML == '急售'){
+                hashHistory.push({
+                    pathname:'carlist',
+                    query:{n4:4}
+                })
+            }
+        }
     }
     render(){
         
@@ -58,14 +102,14 @@ export default class HomeComponent extends Component{
                          <BannerComponent />
                     </div>
                     <div className="priceSelect">
-                        <ul className="priceSelect_t">
+                        <ul className="priceSelect_t" onTouchStart={this.toDetail.bind(this)}>
                             <li><span>5万以下</span></li>
                             <li><span className="secondspan">5-10万</span></li>
                             <li><span>10-15万</span></li>
                             <li><span>15万以上</span></li>
                         </ul>
-                        <ul className="priceSelect_c1">
-                            <li><span>SUV</span></li>
+                        <ul className="priceSelect_c1"  onTouchStart={this.toCarDetail.bind(this)}>
+                            <li><span>自动</span></li>
                             <li><span>保卖车</span></li>
                             <li><span>准新车</span></li>
                             <li><span>急售</span></li>
@@ -222,7 +266,7 @@ export default class HomeComponent extends Component{
                 <footer className="foot_List">
                     <FootListComponent/>
                 </footer>
-                <BackTopComponent />
+                
             </div>
         )
     }

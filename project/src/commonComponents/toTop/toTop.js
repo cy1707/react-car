@@ -16,7 +16,7 @@ export default class BackTopComponent extends Component{
     }
     // 返回顶部
     scrollToTop = () =>{
-        console.log(6789)
+        // console.log(6789)
         window.scrollTo(0, 0);
     }
     render(){
