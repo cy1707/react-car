@@ -19,6 +19,8 @@ import   './goods.scss'
             console.log(res);
             
         });
+
+
     }
 
     
@@ -28,7 +30,7 @@ import   './goods.scss'
         return (
             <div id="biggbox">
                 <div className="g_header">
-                    <span className="back">&lt;</span>
+                <Link to="/carlist"><span className="back">&lt;</span></Link>
                     <h1>车况</h1>
                 </div>
                  <div id="g_box">
@@ -37,8 +39,12 @@ import   './goods.scss'
 
                             this.props.ajaxResult.map((item) => {
                                 return (
+
                                     
-                                    <div className="detail_top">
+                                   
+
+                                    <div className="detail_top" key={item.id}>
+
                                         <div className="img_g">
                                             <img src={item.imgurl.split(',')[1]} alt="" />
                                         </div>
@@ -127,11 +133,7 @@ import   './goods.scss'
                                         <div className="green_blank"></div>
                                         <img src="project/src/img/d7.jpg" alt="" />
                                         <img src="project/src/img/d8.jpg" alt="" />
-                                        <div className="like">
-                                            <div className="l_head">
-                                                猜你喜欢
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 )
                             })

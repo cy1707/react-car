@@ -1,7 +1,9 @@
 .homePage{height:100%;display: flex;flex-direction: column;
     .head_Search{height: 1.226667rem;background: #fff;}
     .main{flex:1;overflow-x:hidden;background:#F3F4F6;
-        .banner{height: 2.546667rem;background: red;}
+        .banner{
+            img{height: 3.546667rem;width: 100%}
+        }
         .priceSelect{height: 7.813333rem;background:#fff;padding-top:.133333rem;
             .priceSelect_t{
                 li{float: left;line-height: 1.146667rem;width: 25%;
@@ -28,9 +30,10 @@
             }
         }
         .otherListSelect{height:3.413333rem;padding:.24rem;
-            li{float:left;background: #fff;width:33.3%;height: 2.933333rem;width: 2.96rem;
-                .big{font-size:.346667rem;color:#3D3D3D;line-height: .693333rem;text-align: center;}
-                .small{font-size:.24rem;line-height: .266667rem;color:#9B9B9B;text-align: center;padding-bottom:.333333rem;}
+            li{float:left;background: #fff;width:31.6%;height: 2.933333rem;display: flex;flex-direction: column;
+                img{align-self: center;}
+                .big{align-self: center;font-size:.346667rem;color:#3D3D3D;line-height: .693333rem;text-align: center;}
+                .small{align-self: center;font-size:.24rem;line-height: .266667rem;color:#9B9B9B;text-align: center;padding-bottom:.333333rem;}
             }
             .li1{margin-right:.24rem;}
             .li2{margin-right:.24rem;}
@@ -111,6 +114,10 @@
 
     
     }
+    .toTop{display: none;position: fixed;bottom:1.333333rem;right:0.533333rem;background:#fff;padding:.133333rem;opacity: 0.7;
+        i{display: block;font-weight: bold;color: #000;}
+    }
+
 }
 
 

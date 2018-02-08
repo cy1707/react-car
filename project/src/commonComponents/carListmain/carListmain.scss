@@ -1,0 +1,18 @@
+.carRecommendList{
+    li{height:2.826667rem;padding-top:.386667rem;padding-bottom:.373333rem;border-bottom:.026667rem solid #E9E9E9;
+        .carRecommendList_l{float: left;width: 3.066667rem;height: 2.826667rem;margin-right:.413333rem;
+            img{width: 3.066667rem;height: 2.066667rem;}
+        }
+        .carRecommendList_r{float: left;width:5.333333rem;
+            .aa{display: inline-block;font-size: .373333rem;color:#303030;font-weight: bold;line-height: .426667rem;}
+            .carRecommendList_rc{
+                span{font-size: .32rem;line-height: .533333rem;color:#A6A6A6;}
+            }
+            .carRecommendList_rb{padding-top:.266667rem;position:relative;
+                .wan{font-size: .4rem;color:#F66137;padding-right:.106667rem;}
+                a{color:#999999;font-size: .293333rem;}
+                .diqu{position:absolute;left:4rem;}
+            }
+        }
+    }
+}

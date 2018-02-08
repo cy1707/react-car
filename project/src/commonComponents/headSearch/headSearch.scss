@@ -4,8 +4,11 @@
         .currentCity{font-size: .346667rem;text-align: center;line-height: 1.226667rem;padding:0 .186667rem 0 .4rem;color:#3E3E40;}
     }
     .headListc_c{width:67%;position:relative;
-        .search{position:absolute;top:  .4rem;left:1.44rem;font-size: .473333rem;color:#C5CAD0;}
-        input{width: 6.4rem;height:.826667rem;border-radius: .4rem;margin-top: .226667rem;background: #F0F1F6;color:#C5CAD0;font-size:.373333rem;padding-left:2.093333rem;border:0 none;}
+        a{display: inline-block;width:100%;
+            .search{position:absolute;top:  .4rem;left:1.44rem;font-size: .473333rem;color:#C5CAD0;}
+            input{width: 100%;height:.826667rem;border-radius: .4rem;margin-top: .226667rem;background: #F0F1F6;color:#C5CAD0;font-size:.373333rem;padding-left:2.093333rem;border:0 none;}
+        }
+        
     }
     .headListc_r{width:13%;
         i{font-size: .506667rem;color:#5B626A;line-height: 1.226667rem;padding-left:.48rem;}

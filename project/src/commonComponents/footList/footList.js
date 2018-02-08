@@ -10,8 +10,8 @@ export default class FootListComponent extends Component{
                 <ul className="footNav">
                     <Link to="/home">
                         <li>
-                            <i className="home icon active"></i>
-                            <p className="active">首页</p>
+                            <i className="home icon"></i>
+                            <p>首页</p>
                         </li>
                     </Link>
                     <Link to="/carlist">

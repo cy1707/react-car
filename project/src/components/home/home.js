@@ -5,20 +5,24 @@ import axios from 'axios'
 import FootListComponent from '../../commonComponents/footList/footList'
 import HeadSearchComponent from '../../commonComponents/headSearch/headSearch'
 import CarRecommendComponent from './carRecommend'
+import BannerComponent from '../../commonComponents/banner/banner'
 import './home.scss'
 
 export default class HomeComponent extends Component{
     state = {
         api:'http://10.3.136.50:88/haoche',
     }
-    
+    // componentWillMount(){
+    //     console.log('开始',this.refs.c2);
+    // }
     // 好车推荐部分组件传参、切换
     carRecommendCreate(e){
         if(e.target.tagName.toLowerCase() == 'div'){
             var lis = e.target.parentElement.parentElement.parentElement.children;
             var len = e.target.parentElement.parentElement.parentElement.children.length;
-            for(var i=0;i<len;i++){
+            for(let i=0;i<len;i++){
                 lis[i].children[0].className = '';
+                // console.log(e.target.innerText )
                 if(e.target.innerText == '好车推荐'){
                     this.setState({api:'http://10.3.136.50:88/haoche'});
                     e.target.parentNode.className="active";
@@ -29,22 +33,29 @@ export default class HomeComponent extends Component{
                     this.setState({api:'http://10.3.136.50:88/jishou'});
                     e.target.parentNode.className="active";
                 }
-                
             }
-            this.refs.c1.getCars();
+            console.log('this的',this)
+            console.log("Tab的", this.refs.c1)
+            console.log("头部的", this.refs.c2)
+
+            // this.refs.c2.headle();
+            // this.refs.c1.getCars();
             
+            // console.log(this.refs.c1);
+            // this.refs.c1.getCars();
         }
         
     }
     render(){
+        
         return (
             <div className="homePage"> 
                 <header className="head_Search">
-                    <HeadSearchComponent/>
+                    <HeadSearchComponent ref = 'c2'/>
                 </header>
                 <div className="main">
                     <div className="banner">
-                        
+                         <BannerComponent />
                     </div>
                     <div className="priceSelect">
                         <ul className="priceSelect_t">
@@ -90,10 +101,10 @@ export default class HomeComponent extends Component{
                             </li>
                         </ul>
                         <div className="priceSelect_c3">
-                            <button>查看全部优质车源</button>
+                            <Link to="/carlist"><button>查看全部优质车源</button></Link>
                         </div>
                         <div className="priceSelect_b">
-                            <button className="price_b1">免费卖车<i className="angle right icon"></i></button>
+                            <Link to="/sell"><button className="price_b1">免费卖车<i className="angle right icon"></i></button></Link>
                             <button className="price_b2">帮你估价<i className="angle right icon"></i></button>
                         </div>
                     </div>
@@ -201,7 +212,7 @@ export default class HomeComponent extends Component{
                             </li>
                         </ul>
                         <div className="carRecommend_c">
-                            <CarRecommendComponent api={this.state.api} ref = "c1"/>
+                            <CarRecommendComponent api={this.state.api} ref="c1"/>
                         </div>
                         <div className="carRecommend_b">
                             <Link to="/carlist">查看更多车源</Link>
@@ -211,6 +222,14 @@ export default class HomeComponent extends Component{
                 <footer className="foot_List">
                     <FootListComponent/>
                 </footer>
+                <div className="toTop">
+                    
+                        <i>返</i>
+                        <i>回</i>
+                        <i>顶</i>
+                        <i>部</i>    
+                    
+                </div>
             </div>
         )
     }
