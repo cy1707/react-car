@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import axios from 'axios'
 import * as actions from './goodsAction'
 
-
+import BackTopComponent from '../../commonComponents/toTop/toTop'
 import   './goods.scss'
 
  class goodsComponent extends Component{
@@ -131,7 +131,7 @@ import   './goods.scss'
                         
                         }
                    
-                   
+                   <BackTopComponent />
             </div>
 
         )

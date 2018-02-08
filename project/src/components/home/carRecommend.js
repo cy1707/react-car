@@ -77,7 +77,7 @@ class CarRecommendComponent extends Component{
 }
 
 let mapStateToProps = (state) => {
-    console.log('Tabcomponent的',state.carRecommend.result)
+    console.log('Tabcomponent的',state.carRecommend)
     return {
         ajaxStatus: state.carRecommend.status,
         ajaxResult: state.carRecommend.result || []

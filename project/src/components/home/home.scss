@@ -114,8 +114,10 @@
 
     
     }
-    .toTop{display: none;position: fixed;bottom:1.333333rem;right:0.533333rem;background:#fff;padding:.133333rem;opacity: 0.7;
-        i{display: block;font-weight: bold;color: #000;}
+    .back-top{
+        position:fixed;
+        top:80%;
+        right:5%;
     }
 
 }

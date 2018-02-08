@@ -6,15 +6,15 @@ import FootListComponent from '../../commonComponents/footList/footList'
 import HeadSearchComponent from '../../commonComponents/headSearch/headSearch'
 import CarRecommendComponent from './carRecommend'
 import BannerComponent from '../../commonComponents/banner/banner'
+import BackTopComponent from '../../commonComponents/toTop/toTop'
 import './home.scss'
 
 export default class HomeComponent extends Component{
     state = {
         api:'http://10.3.136.50:88/haoche',
     }
-    // componentWillMount(){
-    //     console.log('开始',this.refs.c2);
-    // }
+   
+    
     // 好车推荐部分组件传参、切换
     carRecommendCreate(e){
         if(e.target.tagName.toLowerCase() == 'div'){
@@ -222,14 +222,7 @@ export default class HomeComponent extends Component{
                 <footer className="foot_List">
                     <FootListComponent/>
                 </footer>
-                <div className="toTop">
-                    
-                        <i>返</i>
-                        <i>回</i>
-                        <i>顶</i>
-                        <i>部</i>    
-                    
-                </div>
+                <BackTopComponent />
             </div>
         )
     }
