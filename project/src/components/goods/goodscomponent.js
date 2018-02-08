@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import * as actions from './goodsAction'
+import {Link} from 'react-router'
 
 
 import   './goods.scss'
@@ -13,8 +14,8 @@ import   './goods.scss'
     }
     componentWillMount(){
         var id = location.href.split("=")[1];
-
-        this.props.search(3).then(res => {
+    console.log(id);
+        this.props.search(id).then(res => {
             console.log(res);
             
         });
@@ -25,12 +26,18 @@ import   './goods.scss'
 
     render(){
         return (
-            <div id="g_box">
+            <div id="biggbox">
+                <div className="g_header">
+                    <span className="back">&lt;</span>
+                    <h1>车况</h1>
+                </div>
+                 <div id="g_box">
                     
                         {
 
                             this.props.ajaxResult.map((item) => {
                                 return (
+                                    
                                     <div className="detail_top">
                                         <div className="img_g">
                                             <img src={item.imgurl.split(',')[1]} alt="" />
@@ -130,9 +137,27 @@ import   './goods.scss'
                             })
                         
                         }
+                         
                    
-                   
+                </div>
+                <div className="btn-group">
+                    <div className="menu1">
+                        <i></i>
+                        客服
+                    </div>
+                    <div className="menu2">
+                        <i></i>
+                        收藏
+                    </div>
+                    <div className="menu3">
+                        <i></i>
+                        询底价
+                    </div>
+                    <a href="#" className="cut">砍价</a>
+                     <Link to="/mess"><div className="appoin">预约看车</div></Link>
+                </div>
             </div>
+           
 
         )
     }

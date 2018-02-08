@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux'
 
-import prolist from '../components/prolist/prolistReducer'
+
 import goods from '../components/goods/goodsReduer'
+import mess from '../components/mess/messReduer'
 
 export default combineReducers({
-    prolist,
-    goods
+    
+    goods,
+    mess
 })

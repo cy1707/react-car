@@ -21,7 +21,7 @@ export default class SellComponent extends Component{
         return (
             <div id="bigbox">
                 <div className="s_header">
-                    <h1>我要买车</h1>
+                    <h1>我要卖车</h1>
                 </div>
                  <div id="box">
                 <div className="sell_top">
