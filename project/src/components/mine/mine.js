@@ -178,11 +178,11 @@ class MineComponent extends Component{
                             <p>是否确认退出？</p>
                         </div>
                         <div className="actions">
-                            <div className="ui red basic cancel inverted button">
+                            <div className="ui red basic cancel inverted button" style={{padding:".266667rem",margin:".133333rem"}}>
                             <i className="remove icon"></i>
                             否
                             </div>
-                            <div className="ui green ok inverted button"  onTouchStart={this.exitBtn.bind(this)}>
+                            <div className="ui green ok inverted button"  onTouchStart={this.exitBtn.bind(this)} style={{padding:".266667rem",margin:".133333rem"}}>
                             <i className="checkmark icon"></i>
                             是
                             </div>
