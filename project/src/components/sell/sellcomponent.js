@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 
 import   './sell.scss'
 
+import FootListComponent from '../../commonComponents/footList/footList'
+
 
 export default class SellComponent extends Component{
     componentWillMount(){
@@ -17,7 +19,11 @@ export default class SellComponent extends Component{
 
     render(){
         return (
-            <div id="box">
+            <div id="bigbox">
+                <div className="s_header">
+                    <h1>我要买车</h1>
+                </div>
+                 <div id="box">
                 <div className="sell_top">
                     <img src="" alt="" />
                     <div className='p'><span>21321321</span>车主提交了卖车申请</div>
@@ -128,6 +134,12 @@ export default class SellComponent extends Component{
                     
                 </section>
             </div>
+            <div className="s_foot">
+                <FootListComponent></FootListComponent>
+            </div>
+            
+            </div>
+           
         )
     }
 } 

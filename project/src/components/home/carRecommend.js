@@ -13,15 +13,19 @@ class CarRecommendComponent extends Component{
     componentWillMount(){
 
         // this.props.goodsCarList();
+        console.log('api',this.props.api)
         const len = this.props.api.split('/').length;
-        console.log(this.props.api.split('/')[len-1])
+        // console.log('len',this.props.api.split('/')[len-1])
         const data = this.props.api.split('/')[len-1];
         // var api = this.props.api.
         this.props.addCart(data);
+        console.log(666999)
     }
-    getCars(){
-        
-        console.log(666);
+    A(){
+        const len = this.props.api.split('/').length;
+        const data = this.props.api.split('/')[len-1];
+        this.props.addCart(data);
+        console.log("Tab的666");
 
     }
     // 点击跳转详情页
@@ -32,7 +36,6 @@ class CarRecommendComponent extends Component{
         })
     }
     render(){
-        
         return (
             <div>
                  {

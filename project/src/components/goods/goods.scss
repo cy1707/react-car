@@ -247,5 +247,158 @@
                 }
             }
         }
+
+        .chat{
+            background-color: #fff;
+            margin-bottom: 0.16rem;
+            padding: 0.346667rem 0 0.026667rem;
+
+            .c_head{
+                
+                text-decoration: none;
+                font-size: 100%;
+                vertical-align: baseline;
+                font-size: 0.426667rem;
+                color: #495056;
+                font-weight: 500;
+                padding-left: 0.4rem;
+            }
+
+            ul{
+                    width: 100%;
+                    overflow: hidden;
+                    padding-top: 0.266667rem;
+                    margin-bottom: 0.32rem;
+
+                    li{
+                        width: 33.33%;
+                        float: left;
+                        text-align: center;
+                        margin-bottom: 0.24rem;
+
+                        span{
+                            font-size: 0.32rem;
+                            color: #abafb3;
+                            text-align: center;
+                        }
+
+                        p{
+                            font-size: 0.4rem;
+                            color: #757f89;
+                        }
+                    }
+            }
+
+            .btn-check{
+                margin-bottom: 0;
+                padding-bottom: 0.266667rem;
+                width: 4.8rem;
+                margin: 0 auto 0.4rem;
+
+                div{
+                    display: block;
+                    color: #757f89;
+                    width: 100%;
+                    border-radius: 0.053333rem;
+                    text-align: center;
+                    font-size: 0.373333rem;
+                    line-height: 0.906667rem;
+                    position: relative;
+                    border: 0.026667rem solid #abafb3;
+                }
+            }
+        }
+
+        .diverman-say{
+            background: #fff;
+            padding: 0.346667rem 0 0.266667rem;
+            margin-bottom: 0.16rem;
+
+            .d_head{
+                text-decoration: none;
+                font-size: 100%;
+                vertical-align: baseline;
+                font-size: 0.426667rem;
+                color: #495056;
+                font-weight: 500;
+                padding-left: 0.4rem;
+            }
+
+            .diverman{
+                margin: 0.373333rem 0 0.266667rem;
+                padding: 0.08rem 0 0 2.133333rem;
+                box-sizing: border-box;
+                position: relative;
+                .pgs{
+                    position: absolute;
+                    left: 0.4rem;
+                    top: -0.08rem;
+
+                    img{
+                            width: 1.333333rem;
+                            height: 1.333333rem;
+                            border-radius: 50%;
+                            display:inline-block;
+                    }
+
+
+                }
+
+                span{
+                    display: block;
+                    line-height: 0.56rem;
+                    color: #757f89;
+                    font-size: 0.426667rem;
+                }
+
+                p{
+                    font-size: 0.32rem;
+                    color: #abafb3;
+                    line-height: 0.56rem;
+                }
+            }
+
+            .prob-list{
+                width: 100%;
+                overflow: hidden;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                padding: 0.32rem 0.4rem 0;
+
+                li{
+                        padding: 0 0.16rem 0.16rem 0;
+                        display: block;
+                        float: left;
+                        width: 30.33%;
+                        box-sizing: border-box;
+                        display: block;
+                        margin-bottom: 0.213333rem;
+                        margin-right: 0.133333rem;
+                        font-size: 0.346667rem;
+                        color: #757f89;
+                        text-align: center;
+                        line-height: 0.64rem;
+                        height: 0.64rem;
+                        background-color: #f3f4f8;
+                        border: 0.026667rem solid #f3f4f8;
+                        overflow: hidden;
+                }
+            }
+        }
+
+        .like{
+            background: #fff;
+            padding: 0.346667rem 0 0.266667rem;
+            margin-bottom: 0.16rem;
+            .l_head{
+                text-decoration: none;
+                font-size: 100%;
+                vertical-align: baseline;
+                font-size: 0.426667rem;
+                color: #495056;
+                font-weight: 500;
+                padding-left: 0.4rem;
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ export default class orderComponent extends Component{
                         </div>
                         <div className="form_group">
                             <span>上牌时间</span>
-                            <input type="text" placeholder="请选择上牌时间>"/><i></i>
+                            <input type="data" placeholder="请选择上牌时间>"/><i></i>
                         </div>
                         <div className="form_group">
                             <span>行驶里程</span>

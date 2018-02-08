@@ -4,6 +4,9 @@ import {Link} from 'react-router'
 import './headSearch.scss'
 
 export default class HeadSearchComponent extends Component{
+    headcomponentFun(){
+        console.log("头部666");
+    }
     render(){
         return (
             <div className="headListc"> 

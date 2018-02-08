@@ -8,9 +8,9 @@ import * as actions from './buyOrderAction'
 class BuyOrderComponent extends Component{
     componentWillMount(){
 
-        var userId = window.localStorage.username;
-        console.log(userId);
-        this.props.recommend(userId);
+        var userName = window.localStorage.username;
+        console.log('localStorage',userName);
+        this.props.recommend(userName);
     }
     render(){
         return (

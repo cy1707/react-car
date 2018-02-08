@@ -5,13 +5,16 @@ import axios from 'axios'
 import FootListComponent from '../../commonComponents/footList/footList'
 import HeadSearchComponent from '../../commonComponents/headSearch/headSearch'
 import CarRecommendComponent from './carRecommend'
+import BannerComponent from '../../commonComponents/banner/banner'
 import './home.scss'
 
 export default class HomeComponent extends Component{
     state = {
-        api:'http://10.3.136.50:88/baomai',
+        api:'http://10.3.136.50:88/haoche',
     }
-    
+    // componentWillMount(){
+    //     console.log('开始',this.refs.c2);
+    // }
     // 好车推荐部分组件传参、切换
     carRecommendCreate(e){
         if(e.target.tagName.toLowerCase() == 'div'){
@@ -31,8 +34,13 @@ export default class HomeComponent extends Component{
                     e.target.parentNode.className="active";
                 }
             }
+            console.log('this的',this)
+            console.log("Tab的", this.refs.c1)
+            console.log("头部的", this.refs.c2)
+
+            // this.refs.c2.headle();
+            // this.refs.c1.getCars();
             
-            console.log('home的',this.refs.c1)
             // console.log(this.refs.c1);
             // this.refs.c1.getCars();
         }
@@ -43,11 +51,11 @@ export default class HomeComponent extends Component{
         return (
             <div className="homePage"> 
                 <header className="head_Search">
-                    <HeadSearchComponent/>
+                    <HeadSearchComponent ref = 'c2'/>
                 </header>
                 <div className="main">
                     <div className="banner">
-                        <img src="./project/src/img/banner1.jpg"/>
+                         <BannerComponent />
                     </div>
                     <div className="priceSelect">
                         <ul className="priceSelect_t">
@@ -215,10 +223,12 @@ export default class HomeComponent extends Component{
                     <FootListComponent/>
                 </footer>
                 <div className="toTop">
-                    <i>返</i>
-                    <i>回</i>
-                    <i>顶</i>
-                    <i>部</i>    
+                    
+                        <i>返</i>
+                        <i>回</i>
+                        <i>顶</i>
+                        <i>部</i>    
+                    
                 </div>
             </div>
         )
