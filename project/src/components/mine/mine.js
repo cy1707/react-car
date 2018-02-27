@@ -79,10 +79,12 @@ class MineComponent extends Component{
                                         <p>买车订单</p>
                                     </li>
                                 </Link>
-                                <li>
-                                    <img src="./project/src/img/mine_list2.jpg"/>
-                                    <p>卖车订单</p>
-                                </li>
+                                <Link to="/sellorder">
+                                    <li>
+                                        <img src="./project/src/img/mine_list2.jpg"/>
+                                        <p>卖车订单</p>
+                                    </li>
+                                </Link>
                             </ul>
                         </div>
                         <div className="mine_list_b">
@@ -145,7 +147,7 @@ class MineComponent extends Component{
                         <div className="mineRecommend_t">为你推荐</div>
                         <div className="mineRecommend_big_c">
                             {
-                                this.props.ajaxResult.slice(0,6).map( item => {
+                                this.props.ajaxResult.map( item => {
                                     return (
                                         <ul className="mineRecommend_c" key={item.id} onTouchStart={this.recommenddetail.bind(this,item.id)}>
                                             <li>
@@ -199,10 +201,10 @@ class MineComponent extends Component{
 }
 
 let mapStateToProps = (state) => {
-    // console.log('component的',state.mineRecommend.result)
+     console.log('component的',state)
     return {
         ajaxStatus: state.mineRecommend.status,
-        ajaxResult: state.mineRecommend.result || []
+        ajaxResult: state.mineRecommend.myresult || []
     }
 }
 

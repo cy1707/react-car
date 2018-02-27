@@ -5,20 +5,20 @@ export default function carSearchReducer(state = {}, action){
     let newState = JSON.parse(JSON.stringify(state));
     
     switch(action.type){
-        case (ajaxConstants.AJAX_REQUESTING || carSearchConstants.ADDCART_RQUESTING):
+        case (ajaxConstants.AJAX_REQUESTING || carSearchConstants.SEARCH_RQUESTING):
             newState.status = 0;
             break;
-        case ajaxConstants.AJAX_REQUESTED:
+        case ajaxConstants.AJAX_REQUESTED || carSearchConstants.SEARCH_RQUESTED:
             newState.status = 1;
             newState.result = action.result.results;
             // console.log('reducer的',action.result.results)
             
             break;
-        case (ajaxConstants.AJAX_REQUESTERROR || carSearchConstants.ADDCART_RQUESTERROR):
+        case (ajaxConstants.AJAX_REQUESTERROR || carSearchConstants.SEARCH_RQUESTERROR):
             newState.status = -1;
             newState.result = action.result.data;
             break;
-        case carSearchConstants.ADDCART_RQUESTED:
+        case carSearchConstants.SEARCH_RQUESTED:
             newState.status = 1;
             break;
     }

@@ -10,7 +10,7 @@ import './home.scss'
 
 export default class HomeComponent extends Component{
     state = {
-        api:'http://10.3.136.50:88/haoche',
+        api:'http://localhost:88/haoche',
     }
     
     // 好车推荐部分组件传参、切换
@@ -22,13 +22,13 @@ export default class HomeComponent extends Component{
                 lis[i].children[0].className = '';
                 // console.log(e.target.innerText )
                 if(e.target.innerText == '好车推荐'){
-                    this.setState({api:'http://10.3.136.50:88/haoche'});
+                    this.setState({api:'http://localhost:88/haoche'});
                     e.target.parentNode.className="active";
                 }else if(e.target.innerText == '保卖车'){
-                    this.setState({api:'http://10.3.136.50:88/baomai'});
+                    this.setState({api:'http://localhost:88/baomai'});
                     e.target.parentNode.className="active";
                 }else if(e.target.innerText == '降价急售'){
-                    this.setState({api:'http://10.3.136.50:88/jishou'});
+                    this.setState({api:'http://localhost:88/jishou'});
                     e.target.parentNode.className="active";
                 }
                 this.refs.c1.A();

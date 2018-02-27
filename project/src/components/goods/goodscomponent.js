@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import * as actions from './goodsAction'
+import {Link,hashHistory} from 'react-router'
 
-import BackTopComponent from '../../commonComponents/toTop/toTop'
+
 import   './goods.scss'
 
  class goodsComponent extends Component{
@@ -13,25 +14,69 @@ import   './goods.scss'
     }
     componentWillMount(){
         var id = location.href.split("=")[1];
-
-        this.props.search(3).then(res => {
+    console.log(id);
+        this.props.search(id).then(res => {
             console.log(res);
             
         });
+        console.log(window.localStorage.username);
+        
+
     }
 
-    
+    write(){
+        console.log('sdsadsadsad',window.localStorage.length)
+        if(window.localStorage.length == 2){
+            console.log(22222222);
+            var params ={
+             
+                car_name : this.props.ajaxResult[0].name,
+                imgurl : this.props.ajaxResult[0].imgurl,
+                mileage : this.props.ajaxResult[0].mileage,
+                username:window.localStorage.username,
+                oprice : this.props.ajaxResult[0].oprice,
+                type : 0
+   
+           }
+           
+            this.props.write(params).then(res => {
+               console.log(res);
+               
+           });
+            hashHistory.push({
+                pathname:'/mess'
+            })
+           
+        }else{
+            console.log(33333)
+            hashHistory.push({
+                pathname:'/login'
+            })
+        }
+        
+
+    }
 
 
     render(){
         return (
-            <div id="g_box">
+            <div id="biggbox">
+                <div className="g_header">
+                <Link to="/carlist"><span className="back">&lt;</span></Link>
+                    <h1>车况</h1>
+                </div>
+                 <div id="g_box">
                     
                         {
 
                             this.props.ajaxResult.map((item) => {
                                 return (
+
+                                    
+                                   
+
                                     <div className="detail_top" key={item.id}>
+
                                         <div className="img_g">
                                             <img src={item.imgurl.split(',')[1]} alt="" />
                                         </div>
@@ -118,21 +163,36 @@ import   './goods.scss'
                                             </div>
                                         </div>
                                         <div className="green_blank"></div>
-                                        <img src="project/src/img/d7.jpg" alt="" />
-                                        <img src="project/src/img/d8.jpg" alt="" />
-                                        <div className="like">
-                                            <div className="l_head">
-                                                猜你喜欢
-                                            </div>
-                                        </div>
+                                        <img src={item.imgurl.split(',')[1]} alt="" className = "img11"/>
+                                        <img src={item.imgurl.split(',')[2]} alt="" className = "img11"/>
+                                        <img src={item.imgurl.split(',')[3]} alt="" className = "img11"/>
+                                        
                                     </div>
                                 )
                             })
                         
                         }
+                         
                    
-                   <BackTopComponent />
+                </div>
+                <div className="btn-group">
+                    <div className="menu1">
+                        <i></i>
+                        客服
+                    </div>
+                    <div className="menu2">
+                        <i></i>
+                        收藏
+                    </div>
+                    <div className="menu3">
+                        <i></i>
+                        询底价
+                    </div>
+                    <div className="cut">砍价</div>
+                    <div className="appoin" onClick={this.write.bind(this)}>预约看车</div>
+                </div>
             </div>
+           
 
         )
     }
@@ -143,7 +203,9 @@ import   './goods.scss'
 let mapStateToProps = (state) => {
     return {
         ajaxStatus: state.goods.status,
-        ajaxResult: state.goods.result || []
+        ajaxResult: state.goods.result || [],
+        writeResult: state.goodswrite.result || [],
+        writeStatue:state.goodswrite.status,
     }
 }
 

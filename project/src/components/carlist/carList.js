@@ -11,15 +11,11 @@ import './carList.scss'
 export default class CarListComponent extends Component{
      state={
             
-            // url:"http://10.3.136.50:88/allcar",
+            // url:"http://localhost:88/allcar",
             switch:0,
-            api:"http://10.3.136.50:88/allcar"
+            api:"http://localhost:88/allcar"
         }
-     componentWillMount(){
-       // console.log(666)
-      
-
-    }
+     
 
      change(){
             

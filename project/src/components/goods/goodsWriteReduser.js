@@ -1,16 +1,16 @@
-import * as ajaxConstants from '../../constants/ajaxConstants'
+import * as goodsConstants from './goodsConstants'
 
 export default function(state = {}, action){
     let newState = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case ajaxConstants.AJAX_REQUESTING :
+        case goodsConstants.GOODS_RQUESTING :
             newState.status = 0;
             break;
-        case ajaxConstants.AJAX_REQUESTED:
+        case goodsConstants.GOODS_RQUESTED:
             newState.status = 1;
             newState.result = action.result.results;
             break;
-        case ajaxConstants.AJAX_REQUESTERROR:
+        case goodsConstants.GOODS_RQUESTERROR:
             newState.status = -1;
             break;
     }

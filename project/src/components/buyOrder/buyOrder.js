@@ -13,6 +13,7 @@ class BuyOrderComponent extends Component{
         this.props.recommend(userName);
     }
     render(){
+        console.log('购买的',this.props.ajaxResult)
         return (
             <div className="buyorderPage">
                 <div className="buyorder_head">
@@ -28,7 +29,7 @@ class BuyOrderComponent extends Component{
                                     <li>
                                         <p>订单编号:{item.order_id}</p>
                                         <div className="buyorder_cl">
-                                            <img src={item.imgurl}/>
+                                            <img src={item.imgurl.split(',')[0]}/>
                                         </div>
                                         <div className="buyorder_cr">
                                             <a className="buyorder_crt">{item.car_name}</a>
@@ -42,10 +43,7 @@ class BuyOrderComponent extends Component{
                                                 <span>{item.oprice}万</span>
                                             </div>
                                         </div>
-                                        <div className="buyorder_cb">
-                                            <button className="giveupBtn">放弃交易</button>
-                                            <button className="payBtn">确认付款</button>
-                                        </div>
+                                        
                                     </li>
                                 </ul>
                             )
@@ -58,7 +56,7 @@ class BuyOrderComponent extends Component{
     }
 }
 let mapStateToProps = (state) => {
-    console.log('buyOrder的',state.carRecommend.result)
+    
     return {
         ajaxStatus: state.buyorder.status,
         ajaxResult: state.buyorder.result || []

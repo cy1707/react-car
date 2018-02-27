@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
+import {Link,hashHistory} from 'react-router'
 
 import './login.scss'
 
@@ -60,7 +60,10 @@ export default class LoginComponent extends Component{
             // console.log(document.querySelector('.username'))
             // 把用户名存入localstorage里面
             window.localStorage.username = document.querySelector('.username').value;
-            location.href = 'http://localhost:888/#/home';
+            
+            hashHistory.push({
+                pathname:'/home'
+            })
         }
     }
     render(){

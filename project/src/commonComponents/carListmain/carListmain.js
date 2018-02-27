@@ -7,7 +7,7 @@ import './carListmain.scss'
 export default class CarListmainComponent extends Component{
     state={
         data:[],
-        url:"http://10.3.136.50:88/allcar"
+        url:"http://localhost:88/allcar"
     }
     componentWillMount(){
         console.log(this.state)
@@ -24,14 +24,14 @@ export default class CarListmainComponent extends Component{
             var api = location.href.split('?')[1].split('&');
             if(api.length == 1){
                 var _n = api[0].split('=')[1];
-                axios.get("http://10.3.136.50:88/classify",{params:{n:_n}}).then((res)=>{ 
+                axios.get("http://localhost:88/classify",{params:{n:_n}}).then((res)=>{ 
                     this.setState({data:res.data.data.results})      
                 });
             }else if(api.length == 2){
                 var _high = api[0].split('=')[1];
                 var _low = api[1].split('=')[1];
                 // console.log("我的",api,_high,_low)
-                axios.get('http://10.3.136.50:88/scope',{params:{high:_high,low:_low}}).then((res)=>{
+                axios.get('http://localhost:88/scope',{params:{high:_high,low:_low}}).then((res)=>{
                     // console.log(res)
                     this.setState({data:res.data.data.results}) 
                 //    console.log(this.state.data)        
@@ -51,7 +51,7 @@ export default class CarListmainComponent extends Component{
         });
     }
     changeUrl(){
-        this.setState({url:"http://10.3.136.50:88/sortlow"},function(){
+        this.setState({url:"http://localhost:88/sortlow"},function(){
             console.log(this.state)
             this.getCart(this.state.url);
         });
@@ -60,7 +60,7 @@ export default class CarListmainComponent extends Component{
     }
 
         changeBUrl(){
-        this.setState({url:"http://10.3.136.50:88/sorthigh"},function(){
+        this.setState({url:"http://localhost:88/sorthigh"},function(){
             console.log(this.state)
             this.getCart(this.state.url);
         });
@@ -68,7 +68,7 @@ export default class CarListmainComponent extends Component{
 
     }
         changeCUrl(){
-        this.setState({url:"http://10.3.136.50:88/baomai"},function(){
+        this.setState({url:"http://localhost:88/baomai"},function(){
             console.log(this.state)
             this.getCart(this.state.url);
         });
@@ -83,7 +83,7 @@ export default class CarListmainComponent extends Component{
         }
     changeParams(b){
         let self=this;
-        axios.get("http://10.3.136.50:88/scope",{params:b}).then(function(res){
+        axios.get("http://localhost:88/scope",{params:b}).then(function(res){
             console.log(res)
                 self.setState({data:res.data.data.results})
         })
